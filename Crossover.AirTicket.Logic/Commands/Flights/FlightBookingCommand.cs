@@ -6,7 +6,7 @@ namespace Crossover.AirTicket.Logic.Commands.Flights
 {
     public class FlightBookingCommand : ICommand
     {
-        public Guid FlightId { get; set; }
+        public string FlightId { get; set; }
         public Passenger[] Passengers { get; set; }
 
     }

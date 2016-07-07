@@ -7,10 +7,11 @@ namespace Crossover.AirTicket.Logic.Query.Flights
 {
     public class FlightBookingRequestQueryResult : IQueryResult
     {
-        public Location From { get; set; }
-        public Location To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
         public DateTime Departure { get; set; }
-        public DateTime Return { get; set; }
-        public IEnumerable<Seat> Seats { get; set; } 
+        public int Seats { get; set; } 
+        public double Price { get; set; }
+        public string FlightId { get; set; }
     }
 }

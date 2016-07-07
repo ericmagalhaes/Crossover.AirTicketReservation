@@ -54,5 +54,10 @@ namespace Crossover.AirTicket.Logic.Domain
         {
 
         }
+
+        public Seat[] OpenSeats()
+        {
+            return Seats.Where(s => s.Closed == false).ToArray();
+        }
     }
 }

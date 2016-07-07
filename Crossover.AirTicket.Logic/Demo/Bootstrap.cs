@@ -43,10 +43,14 @@ namespace Crossover.AirTicket.Logic.Demo
                     new Location(Orlando,"Orlando","Florida","United States" ),
                     new Location(Paris,"Paris","Ilê-de-France","França" ),
                     new Location(Quebec,"Quebec","Quebec","Canada" ),
+                    new Location(Brasilia,"Brasilia","Distrito Federal","Brazil" ),
+                    new Location(Orlando,"Orlando","Florida","United States" ),
+                    new Location(Paris,"Paris","Ilê-de-France","França" ),
+                    new Location(Quebec,"Quebec","Quebec","Canada" ),
                 };
-                var to = random.Next(0, 3);
+                var to = random.Next(0, 7);
                 flight.To = locations[to];
-                var from = random.Next(0, 3);
+                var from = random.Next(0, 7);
                 if (to == from)
                     from = (from == 0) ? (from + 1) : (from - 1);
                 flight.From = locations[from];

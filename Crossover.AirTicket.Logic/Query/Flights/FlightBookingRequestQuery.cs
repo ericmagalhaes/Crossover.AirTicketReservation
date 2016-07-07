@@ -5,6 +5,6 @@ namespace Crossover.AirTicket.Logic.Query.Flights
 {
     public class FlightBookingRequestQuery : IQuery
     {
-        public Guid FlightId { get; set; }
+        public string FlightId { get; set; }
     }
 }
