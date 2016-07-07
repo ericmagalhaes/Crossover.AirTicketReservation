@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="91459e5e-0fb1-49c8-a2ed-dc1b1aae33c6"
+  name="Infraestructure Layer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3d6cb70f-f229-4285-b9c4-ed94881d5c0e"
+        LastKnownName="IoC"
+        LastKnownLocation="Package_1442.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="75185a14-64f7-48f6-8fa9-9ec669515b6d"
+        LastKnownName="Cache"
+        LastKnownLocation="Package1_1442.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c2c65e68-62aa-4316-a2ed-f6de7ca1842b"
+        LastKnownName="Repositories"
+        LastKnownLocation="Package2_1442.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1ac06b0b-ede4-4786-bf58-81ba05f4083f"
+        LastKnownName="Security"
+        LastKnownLocation="Package_1443.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e9dab05d-2968-497d-9fff-7186afe3851f"
+        LastKnownName="Logging"
+        LastKnownLocation="Package1_1443.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="36de153a-545c-4546-8c22-67ee15a12a00"
+        LastKnownName="Exception Handling"
+        LastKnownLocation="Package_1444.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

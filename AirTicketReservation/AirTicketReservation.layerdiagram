@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="61a34e8a-8a33-441b-98ed-00d2756f58f7" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="e8c5ec44-8ef5-4008-9918-e8ffd6d3157a" name="Presentation">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="c82dd016-cb35-40e7-ae1d-c143ab5c5341" direction="Forward">
+          <layerMoniker Id="ed491077-2ea2-4386-aef1-4b06a29bad42" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="01cd27be-56fe-49b4-8256-7fccd5a5a247" name="Angular" />
+      </childLayers>
+    </layer>
+    <layer Id="ed491077-2ea2-4386-aef1-4b06a29bad42" name="Server ">
+      <childLayers>
+        <layer Id="a8f86949-a302-4541-bb23-0022846e55c6" name="Infraestructure Layer for Web-Services (REST)">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="be80d79f-5afc-48a5-9235-f97cf7871399" direction="Forward">
+              <layerMoniker Id="da98492b-bacf-4772-b984-c12d6e93b38c" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="d6a1e83f-4fe4-41e7-a722-4748f0a98726" name="Azure API APP&#xD;&#xA;ASP.NET Web Api 2" />
+          </childLayers>
+        </layer>
+        <layer Id="da98492b-bacf-4772-b984-c12d6e93b38c" name="Domain Layer">
+          <childLayers>
+            <layer Id="b7d0affe-ee71-4107-9789-4c83b8ff69fc" name="Domain Entities" />
+            <layer Id="9b53b070-349c-4442-b8b1-f8dca58358e9" name="Domain Services" />
+          </childLayers>
+        </layer>
+        <layer Id="b9c82116-a3f8-4f28-a7e0-b5c0db3abac7" name="Infraestrucutre Layer of Data Persistence">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="64432372-4cf0-436b-86a7-f3cf30d4e011" direction="Forward">
+              <layerMoniker Id="da98492b-bacf-4772-b984-c12d6e93b38c" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="ffeed0c3-6f06-4ef2-bd26-6db3dd4c77a7" name="Repositories&#xD;&#xA;Azure DocumentDB" />
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="5230739b-3b20-4d13-83ee-bf2496e3fed3" name="Infraestrucutre Cross-cutting">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="8f0bd1fc-c8cd-4529-809e-7aa202eeb0ce" direction="Forward">
+          <layerMoniker Id="ed491077-2ea2-4386-aef1-4b06a29bad42" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="585fe057-28dd-4381-ae34-3cb4fea97e05" name="Security&#xD;&#xA;ASP.NET Identity" />
+        <layer Id="4108106f-92b8-4038-b723-fac635337b4e" name="Cache&#xD;&#xA;Azure Redis Cache" />
+        <layer Id="9a26e61a-70d5-4fd0-a676-b2f32fec2838" name="Logging&#xD;&#xA;Log4.Net" />
+        <layer Id="27a5edb2-a26c-4892-ad91-5d9ebd7e6d2b" name="Excpetion Handling" />
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

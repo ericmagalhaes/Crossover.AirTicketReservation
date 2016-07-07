@@ -1,0 +1,35 @@
+﻿
+
+<form name="vm.dataForm" class="center-block" style="max-width: 275px;" novalidate="" ng-submit="vm.login()">
+    <div class="form-group text-center">
+        <h3>Air Ticket Reservation</h3>
+        <small>Customer Login</small>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Username</label>
+        <input type="email" name="username" ng-model="vm.username" class="form-control" ng-required="true" />
+        <small class="text-danger" ng-show="vm.dataForm.username.$error.required && vm.dataForm.username.$dirty">Field is required</small>
+        <small class="text-danger" ng-show="vm.dataForm.username.$error.email && vm.dataForm.username.$dirty">Email is not valid</small>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Password</label>
+        <input type="password" name="password" ng-model="vm.password" class="form-control" ng-required="true" ng-minlength="6" ng-maxlength="25" />
+        <small class="text-danger" ng-show="vm.dataForm.password.$error.required && vm.dataForm.password.$dirty">Field is required</small>
+        <small class="text-danger" ng-show="vm.dataForm.password.$error.minlength && vm.dataForm.password.$dirty">Minimun 6 characteres</small>
+    </div>
+    <div class="form-group">
+        <small class="text-danger" ng-repeat="message in vm.messages">{{message}}</small>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default form-control">Login</button>
+    </div>
+    <div class="form-group">
+        <button type="button" ui-sref="page.register" class="btn btn-default form-control">Don't have Login? Register now!</button>
+    </div>
+    <div class="form-group" ng-repeat="provider in vm.providers">
+        <a href="{{vm.webApiUrl}}{{provider.url.substring(1)}}" class="btn btn-default form-control">Login with {{provider.name}}</a>
+    </div>
+    
+</form>
+
+

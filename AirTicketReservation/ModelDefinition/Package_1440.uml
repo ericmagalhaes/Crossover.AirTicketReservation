@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b814e7f4-b634-409a-92c5-a094214768f3"
+  name="Application Layer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="bc63e224-9545-4399-8f1c-1898434637fc">
+      <packageMoniker
+        Id="831d040d-6121-4546-b689-f2f8381bc805"
+        LastKnownName="Domain Layer"
+        LastKnownLocation="Package1_1440.uml" />
+    </dependency>
+    <dependency
+      Id="16d3fe62-7cd8-41c0-9f09-d70e36167807">
+      <packageMoniker
+        Id="91459e5e-0fb1-49c8-a2ed-dc1b1aae33c6"
+        LastKnownName="Infraestructure Layer"
+        LastKnownLocation="Package2_1440.uml" />
+    </dependency>
+  </suppliersInternal>
+</package>

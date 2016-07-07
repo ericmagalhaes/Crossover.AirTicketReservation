@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="33038ce7-da6b-45d3-b520-6b7c50ccb2e5"
+  name="Presentation Layer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="52c04b82-6f00-4640-b731-d5ada7792851">
+      <packageMoniker
+        Id="b814e7f4-b634-409a-92c5-a094214768f3"
+        LastKnownName="Application Layer"
+        LastKnownLocation="Package_1440.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d3c320bb-bcd5-4ab9-8767-a0004b46b86d"
+        LastKnownName="Application Layer"
+        LastKnownLocation="Package1_1439.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d74ffaba-b85c-4934-b5a9-ff9200439ca7"
+        LastKnownName="Angular"
+        LastKnownLocation="Package_1459.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

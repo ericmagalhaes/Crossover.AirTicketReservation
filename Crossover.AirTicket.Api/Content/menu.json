@@ -1,0 +1,22 @@
+﻿[
+  {
+    "name": "Find Flights",
+    "url": "/flight",
+    "role": [ "public", "staff" ]
+  },
+  {
+    "name": "My bookings",
+    "url": "/bookings",
+    "role": [ "public", "staff" ]
+  },
+  {
+    "name": "Cancel booking",
+    "url": "/cancel-booking",
+    "role": [ "public", "staff" ]
+  },
+  {
+    "name": "Cancel flight",
+    "url": "/cancel-flight",
+    "role": [ "public", "staff" ]
+  }
+]

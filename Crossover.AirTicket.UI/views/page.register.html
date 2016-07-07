@@ -1,0 +1,44 @@
+﻿
+
+<form name="vm.dataForm" class="center-block" style="max-width: 275px;" novalidate="" ng-submit="vm.register()">
+    <div class="form-group text-center">
+        <h3>Air Ticket Reservation</h3>
+        <small>Customer registration</small>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Username</label>
+        <input type="email" name="username" ng-model="vm.username" class="form-control" ng-required="true"/>
+        <small class="text-danger" ng-show="vm.dataForm.username.$error.required && vm.dataForm.username.$dirty">Field is required</small>
+        <small class="text-danger" ng-show="vm.dataForm.username.$error.email && vm.dataForm.username.$dirty">Email is not valid</small>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Password</label>
+        <input type="password" name="password" ng-model="vm.password" class="form-control" ng-required="true" ng-minlength="6" ng-maxlength="25"/>
+        <small class="text-danger" ng-show="vm.dataForm.password.$error.required && vm.dataForm.password.$dirty">Field is required</small>
+        <small class="text-danger" ng-show="vm.dataForm.password.$error.minlength && vm.dataForm.password.$dirty">Minimun 6 characteres</small>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Re-type password</label>
+        <input type="password" name="repassword" ng-model="vm.repassword" class="form-control" ng-required="true" ng-minlength="6" ng-maxlength="25"/>
+        <small class="text-danger" ng-show="vm.dataForm.repassword.$error.required && vm.dataForm.repassword.$dirty">Field is required</small>
+        <small class="text-danger" ng-show="vm.password != vm.repassword && vm.dataForm.repassword.$dirty">Password are not equal</small>
+        <small class="text-danger" ng-show="vm.dataForm.repassword.$error.minlength && vm.dataForm.password.$dirty">Minimun 6 characteres</small>
+    </div>
+    <div class="form-group">
+        <small class="text-danger" ng-repeat="message in vm.messages">{{message}}</small>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default form-control">Register</button>
+    </div>
+    <div class="form-group">
+        <button type="button" ui-sref="page.login" class="btn btn-default form-control">Have an account?</button>
+    </div>
+    <div class="form-group">
+        <a href="" class="btn btn-default form-control">Register with Facebook</a>
+    </div>
+    <div class="form-group">
+        <a href="" class="btn btn-default form-control">Register with Gmail</a>
+    </div>
+</form>
+
+

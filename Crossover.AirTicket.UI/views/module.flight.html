@@ -1,0 +1,30 @@
+﻿<form>
+    <div class="row">
+        <div class="col-sm-12">
+            <label class="control-label">From:</label>
+            <input type="text" ng-model="vm.from" uib-typeahead="state for state in vm.states | filter:$viewValue | limitTo:8" class="form-control">
+        </div>
+        <div class="col-sm-12">
+            <label class="control-label">To:</label>
+            <input type="text" ng-model="vm.to" uib-typeahead="state for state in vm.states | filter:$viewValue | limitTo:8" class="form-control">
+        </div>
+        <div class="col-sm-12">
+            <label class="control-label">Depart:</label>
+            <p class="input-group" ng-init="vm.openedDepart=false">
+                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="vm.depart" is-open="vm.openedDepart" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.openedDepart = !vm.openedDepart"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <div class="col-sm-12">
+            <label class="control-label">Return:</label>
+            <p class="input-group" ng-init="vm.openedReturn=false">
+                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="vm.return" is-open="vm.openedReturn" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.openedReturn = !vm.openedReturn"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+    </div>
+</form>
