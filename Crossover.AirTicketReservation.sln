@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossover.AirTicket.Logic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossover.AirTicket.Tests", "Crossover.AirTicket.Tests\Crossover.AirTicket.Tests.csproj", "{D857121B-17E1-432D-B1E1-4E4BB1BF112F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{64D48778-CC35-406E-AC12-836F904424E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D48778-CC35-406E-AC12-836F904424E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D48778-CC35-406E-AC12-836F904424E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D48778-CC35-406E-AC12-836F904424E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D48778-CC35-406E-AC12-836F904424E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

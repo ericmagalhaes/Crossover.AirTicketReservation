@@ -6,5 +6,9 @@
         {
 
         }
+        public AirTicketBusinessException(string businessCode, string message)
+        {
+
+        }
     }
 }

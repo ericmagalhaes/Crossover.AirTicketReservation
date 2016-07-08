@@ -60,7 +60,7 @@ namespace Crossover.AirTicket.Logic.Handlers
             flightBookingRequestQueryResult.From = selectedFligh.From.Name;
             flightBookingRequestQueryResult.To = selectedFligh.To.Name;
             flightBookingRequestQueryResult.Price = selectedFligh.Price;
-            flightBookingRequestQueryResult.Seats = selectedFligh.OpenSeats().Length;
+            flightBookingRequestQueryResult.Seats = selectedFligh.OpenSeats;
             flightBookingRequestQueryResult.FlightId = selectedFligh.Id;
 
             return flightBookingRequestQueryResult;

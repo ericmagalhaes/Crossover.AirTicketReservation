@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5D3D0B42-36B8-4EB9-9678-4E0F603489E2}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{64D48778-CC35-406E-AC12-836F904424E8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Crossover.AirTicket.Core</RootNamespace>
-    <AssemblyName>Crossover.AirTicket.Core</AssemblyName>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -46,12 +49,7 @@
       <HintPath>..\packages\MongoDB.Messaging.1.5.0.17\lib\net45\MongoDB.Messaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.2.0\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,37 +59,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AggregateRoot.cs" />
-    <Compile Include="Common\Entity.cs" />
-    <Compile Include="Common\ValueObject.cs" />
-    <Compile Include="Cqrs\CommandDispatcher.cs" />
-    <Compile Include="Cqrs\EventDispatcher.cs" />
-    <Compile Include="Cqrs\ICommand.cs" />
-    <Compile Include="Cqrs\ICommandDispatcher.cs" />
-    <Compile Include="Cqrs\ICommandHandler.cs" />
-    <Compile Include="Cqrs\IEvent.cs" />
-    <Compile Include="Cqrs\IEventDispatcher.cs" />
-    <Compile Include="Cqrs\IEventHandler.cs" />
-    <Compile Include="Cqrs\IQuery.cs" />
-    <Compile Include="Cqrs\IQueryDispatcher.cs" />
-    <Compile Include="Cqrs\IQueryHandler.cs" />
-    <Compile Include="Cqrs\IQueryResult.cs" />
-    <Compile Include="Cqrs\QueryDispatcher.cs" />
-    <Compile Include="Exception\AirTicketBusinessException.cs" />
-    <Compile Include="Exception\AirTicketException.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queue\IQueue.cs" />
-    <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Security\ISecurityContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Documentation\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Notifications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,15 +8,26 @@ namespace Crossover.AirTicket.Logic.Domain
 {
     public class Flight : Entity
     {
-        public String Name { get; set; }
-        public Location To { get; set; }
-        public Location From { get; set; }
-        public Seat[] Seats { get; set; }
-        public DateTime Departure { get; set; }
-        public DateTime Landing { get; set; }
-        public bool Closed { get; set; }
-        public double Price { get; set; }
-        
+        public String Name { get; private set; }
+        public Location To { get; private set; }
+        public Location From { get; private set; }
+        public Seat[] Seats { get; private set; }
+        public DateTime Departure { get; private set; }
+        public DateTime Landing { get; private set; }
+        public bool Closed { get; private set; }
+        public double Price { get; private set; }
+        public int OpenSeats { get; private set; }
+
+        public Flight(string name, Location from, Location to, DateTime departure, DateTime landing, int openSeats)
+        {
+            Name = name;
+            From = from;
+            To = to;
+            Departure = departure;
+            Landing = landing;
+            OpenSeats = openSeats;
+        }
+
         [BsonIgnore]
         private readonly object _reservationLock = new object();
         /// <summary>
@@ -24,40 +35,29 @@ namespace Crossover.AirTicket.Logic.Domain
         /// requested numbers of seats are unavailable a business exception is throw
         /// </summary>
         /// <param name="booking">Booking</param>
-        /// <param name="selectedSeats">Selected Seats</param>
         /// <returns>Flight</returns>
-        public Flight ReserveSeats(Booking booking, Seat[] selectedSeats)
+        public Flight ReserveSeats(Booking booking)
         {
-            lock (_reservationLock)
+            var availableSeats = OpenSeats;
+            var requestedSeats = booking.ReservedSeats;
+            if (availableSeats == 0)
+                throw new AirTicketBusinessException("No seats available");
+            if (requestedSeats > availableSeats)
             {
-                var availableSeats = Seats.Count(s => !s.Reserved);
-                var requestedSeats = selectedSeats.Length;
-                if (availableSeats == 0)
-                    throw new AirTicketBusinessException("No seats available");
-                if (requestedSeats > availableSeats)
-                {
-                    var diffSeats = requestedSeats - availableSeats;
-                    throw new AirTicketBusinessException($"Only {diffSeats} are available");
-                }
-                Array.ForEach(selectedSeats, (seat) =>
-                {
-                    var flightSeat = Seats.FirstOrDefault(s => s.Id == seat.Id);
-                    if (flightSeat == null)
-                        throw new AirTicketBusinessException("Seat not found");
-                    flightSeat.Reserve(booking);
-                });
-                return this;
+                var diffSeats = requestedSeats - availableSeats;
+                throw new AirTicketBusinessException($"Only {diffSeats} are available");
             }
+            OpenSeats = OpenSeats - requestedSeats;
+            return this;
+
         }
 
-        public void UndoSeats(Seat[] selectedSeats)
+        public Flight AjustPrice(double price)
         {
-
+            Price = price;
+            return this;
         }
 
-        public Seat[] OpenSeats()
-        {
-            return Seats.Where(s => s.Closed == false).ToArray();
-        }
+
     }
 }

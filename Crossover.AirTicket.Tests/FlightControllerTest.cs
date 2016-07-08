@@ -22,13 +22,15 @@ namespace Crossover.AirTicket.Tests
         private IQueryDispatcher _queryDispatcher = null;
         private ICommandDispatcher _commandDispatcher = null;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Init()
         {
 
             var container = Bootstrap.InitContainer();
             _queryDispatcher = new QueryDispatcher(container);
             _commandDispatcher = new CommandDispatcher(container);
+            Bootstrap.InitQueue();
+
             //Bootstrap.InitDatabase();
         }
 
@@ -67,7 +69,7 @@ namespace Crossover.AirTicket.Tests
         {
             var flightController = new FlightsController(_queryDispatcher, _commandDispatcher);
             var flightBookingCommand = new FlightBookingCommand();
-            flightBookingCommand.FlightId = "577eb8bbf3c09b2a78fd6f47";
+            flightBookingCommand.FlightId = "577e355866309c2fac23b4eb";
             flightBookingCommand.Passengers = new Passenger[]
             {
                 new Passenger()

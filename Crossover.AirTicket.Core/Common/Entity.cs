@@ -1,26 +1,14 @@
 ﻿using System;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 
 namespace Crossover.AirTicket.Core.Common
 {
     public abstract class Entity
     {
-        /***
-        Property should have a protected set.
-        I have to remove becouse of IEntity, MongoRepository
-        instead I write a private field to allow only one change,
-        this will maintain the immutable concept **/
-        private string _id = string.Empty;
-        [BsonId]
-        public string Id {
-            get { return _id;}
-            set
-            {
-                if (string.Empty == _id)
-                    _id = value;
-            }
-        }
+        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
+        public string Id { get; set; }
 
         public override bool Equals(object obj)
         {

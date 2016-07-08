@@ -12,5 +12,4 @@
         /// <param name="command">The command to be used</param>
         void Execute(TParameter command);
     }
-
 }
