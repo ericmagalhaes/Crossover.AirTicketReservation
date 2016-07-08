@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Messaging;
 using MongoDB.Messaging.Service;
+using MongoDB.Messaging.Subscription;
 
 namespace ConsoleApplication1
 {
@@ -13,26 +14,50 @@ namespace ConsoleApplication1
         private static string EmailQueueName = "EmailNotificationQueue";
         private static string MongoDbConnection = "MongoServerSettings";
         private static MessageService _messageService = null;
+
         static void Main(string[] args)
-        { 
+        {
+           
 
-        MessageQueue.Default.Configure(c => c
-    .Connection(MongoDbConnection)
-    .Queue(s => s
-        .Name(EmailQueueName)
-        .Retry(5)));
+            // on service or application start
+            
+            MessageQueue.Default.Configure(c => c
+                .Connection("MongoServerSettings")
+                .Queue(s => s
+                    .Name("SleepQueue")
+                    .Priority(MessagePriority.High)
+                    .ResponseQueue("ReplyQueueName")
+                    .Retry(5)
+                )
+                );
 
-            //MessageQueue.Default.Configure(c =>
-            //c.Connection(MongoDbConnection)
-            //.Subscribe(s =>
-            //s.Queue(EmailQueueName)
-            //.Handler<EmailQueueHandler>()
-            //.Workers(4)));
+            var message = MessageQueue.Default.Publish(m => m.Queue("SleepQueue").Data(new SleepMessage())).Result;
+            
             _messageService = new MessageService();
             _messageService.Start();
-            var message = MessageQueue.Default.Publish(
-               m => m.Queue(EmailQueueName)
-                   .Data(new object()));
+            Console.ReadLine();
+        }
+
+        public class SleepMessage
+        {
+        }
+
+        public class SleepHandler : IMessageSubscriber
+        {
+            public MessageResult Process(ProcessContext context)
+            {
+                // get message data
+                var sleepMessage = context.Data<SleepMessage>();
+
+                // Do processing here
+
+                return MessageResult.Successful;
+            }
+
+            public void Dispose()
+            {
+                // free resources
+            }
         }
     }
 }
