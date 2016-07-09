@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Crossover.AirTicket.Core.Common;
+using Crossover.AirTicket.Logic.Commands.Flights;
 using Crossover.AirTicket.Logic.Events;
 
 namespace Crossover.AirTicket.Logic.Domain
 {
-    public class FlightBooking:AggregateRoot
+    public class BookingRequest:AggregateRoot
     {
-        public FlightBooking()
+        public BookingRequest()
         {
             Id = Guid.NewGuid().ToString("B");
         }
@@ -35,6 +36,7 @@ namespace Crossover.AirTicket.Logic.Domain
         public Booking BookingInfo()
         {
             var booking = new Booking(FlightId,ReservedSeats,User);
+            
             foreach (var passenger in Passengers)
             {
                 booking.AddPassenger(passenger);
@@ -45,12 +47,22 @@ namespace Crossover.AirTicket.Logic.Domain
 
         public static class Factory
         {
-            public static FlightBooking Create(string flightId,int seats,Passenger[] passengers,string userId)
-            {
-                var request = new FlightBookingCreatedEvent(flightId,seats,passengers,userId);
-                var flightBooking = new FlightBooking();
+           public static BookingRequest Create(RequestBookingCommand command)
+           {
+                var request = new FlightBookingCreatedEvent(command.FlightId,command.Passengers.Length,command.Passengers,command.UserId);
+                var flightBooking = new BookingRequest();
                 flightBooking.RaiseEvent(request);
                 return flightBooking;
+            }
+        }
+
+        public static class Adapter
+        {
+            public static Booking Booking(BookingRequest bookingRequest)
+            {
+                var booking = new Booking(bookingRequest.FlightId, bookingRequest.ReservedSeats, bookingRequest.User);
+                booking.RequestId = bookingRequest.Id;
+                return booking;
             }
         }
 

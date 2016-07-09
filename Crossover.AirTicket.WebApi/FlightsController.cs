@@ -38,7 +38,7 @@ namespace Crossover.AirTicket.WebApi
         }
 
         [Route("{FlightId}/Booking"), HttpPost]
-        public IHttpActionResult FlightBooking([FromBody] FlightBookingCommand command)
+        public IHttpActionResult FlightBooking([FromBody] RequestBookingCommand command)
         {
             _commandDispatcher.Dispatch(command);
             return Ok();

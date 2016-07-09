@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Crossover.AirTicket.Core.Cqrs;
 using Crossover.AirTicket.Logic.Commands.Flights;
 using Crossover.AirTicket.Logic.Demo;
@@ -11,8 +6,6 @@ using Crossover.AirTicket.Logic.Domain;
 using Crossover.AirTicket.Logic.Query.Flights;
 using Crossover.AirTicket.WebApi;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
-using SimpleInjector;
 
 namespace Crossover.AirTicket.Tests
 {
@@ -68,8 +61,8 @@ namespace Crossover.AirTicket.Tests
         public void FlightBookingCommandTest()
         {
             var flightController = new FlightsController(_queryDispatcher, _commandDispatcher);
-            var flightBookingCommand = new FlightBookingCommand();
-            flightBookingCommand.FlightId = "577e355866309c2fac23b4eb";
+            var flightBookingCommand = new RequestBookingCommand();
+            flightBookingCommand.FlightId = "577eb8bbf3c09b2a78fd6f2c";
             flightBookingCommand.Passengers = new Passenger[]
             {
                 new Passenger()

@@ -5,9 +5,9 @@ using Crossover.AirTicket.Core.Exception;
 
 namespace Crossover.AirTicket.Logic.Domain
 {
+    
     public class Booking:Entity
     {
-        
         public string FlightId { get; private set; }
         public string User { get; private set; }
         public int ReservedSeats { get; private set; }
@@ -20,11 +20,11 @@ namespace Crossover.AirTicket.Logic.Domain
         public Booking(string flightId, int seats,string user)
         {
             if (flightId == null)
-                throw new AirTicketBusinessException("flight cannot be empty");
+                throw new AirTicketBusinessException(RequestId,"flight cannot be empty");
             if (user == null)
-                throw new AirTicketBusinessException("user cannot be empty");
+                throw new AirTicketBusinessException(RequestId,"user cannot be empty");
             if (seats <= 0)
-                throw new AirTicketBusinessException("at least one seat must be selected");
+                throw new AirTicketBusinessException(RequestId,"at least one seat must be selected");
             
             FlightId = flightId;
             User = user;

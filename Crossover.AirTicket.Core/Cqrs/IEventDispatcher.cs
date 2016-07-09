@@ -7,6 +7,6 @@
         /// </summary>
         /// <typeparam name="TParameter">Command Type</typeparam>
         /// <param name="evt">The command to be passed to the handler</param>
-        void Raise<TParameter>(TParameter evt) where TParameter : IEvent;
+        void Raise<TParameter>(TParameter evt) where TParameter : Event;
     }
 }

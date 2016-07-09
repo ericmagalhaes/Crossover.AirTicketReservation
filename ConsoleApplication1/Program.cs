@@ -22,9 +22,9 @@ namespace ConsoleApplication1
             // on service or application start
             
             MessageQueue.Default.Configure(c => c
-                .Connection("MongoServerSettings")
+                .Connection(MongoDbConnection)
                 .Queue(s => s
-                    .Name("SleepQueue")
+                    .Name(EmailQueueName)
                     .Priority(MessagePriority.High)
                     .ResponseQueue("ReplyQueueName")
                     .Retry(5)

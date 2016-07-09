@@ -84,17 +84,28 @@ namespace Crossover.AirTicket.Logic.Demo
             var container = new Container();
             var logicAssembly = Assembly.GetExecutingAssembly();
             container.Register(typeof(ISecurityContext), ()=> new MockedSecurityContext("ericm"));
-            container.Register(typeof(IRepository<>), typeof(MongoRepository<>));
+            container.Register(typeof(IRepository<>), new[] { typeof(MongoRepository<>).Assembly});
+            container.Register(typeof(IRepository<>), new[] { typeof(Event).Assembly });
+            container.Register(typeof(IRepository<Flight>), typeof(MongoRepository<Flight>));
+            container.Register(typeof(IRepository<Booking>), typeof(MongoRepository<Booking>));
+            container.Register(typeof(IRepository<Event>), typeof(MongoRepository<Event>));
+            container.Register(typeof(IRepository<EmailNotification>), typeof(MongoRepository<EmailNotification>));
             container.Register<IQueryDispatcher, QueryDispatcher>();
             container.Register<ICommandDispatcher, CommandDispatcher>();
             container.Register<IEventDispatcher, EventDispatcher>();
 
             container.Register(typeof (IQueryHandler<,>), typeof (FlightsQueryHandler));
-            container.Register(typeof(ICommandHandler<>), typeof(FlightsCommandHandler));
-            container.Register(typeof (IEventHandler<>), typeof (BookingEventHandler));
+            container.Register(typeof(ICommandHandler<>), typeof(BookingCommandHandler));
+            //container.Register(typeof (IEventHandler<>), typeof (NotificationEventHandler));
+            var logic = typeof(BookingRequestCreateEvent).Assembly;
+            var registrations =
+                logic.GetExportedTypes()
+                    .Where(xt => xt.GetInterfaces().Count(i => i.Name == typeof(IEventHandler<>).Name) > 0);
+
+            container.RegisterCollection(typeof(IEventHandler<>), registrations);
             container.Register(typeof (FlightBookingRepository), typeof (FlightBookingRepository));
             container.Register(typeof(IEmailNotificationQueue<EmailNotification>),typeof(MongoEmailNotificationQueue));
-
+            container.Verify();
             
             //container.RegisterCollection(typeof(ICommandHandler<>), Assembly.GetExecutingAssembly());
             return container;

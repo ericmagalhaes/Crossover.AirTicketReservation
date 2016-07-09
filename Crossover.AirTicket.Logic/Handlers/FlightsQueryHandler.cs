@@ -53,7 +53,7 @@ namespace Crossover.AirTicket.Logic.Handlers
             var selectedFligh = _flightRepository.AsQueryable().FirstOrDefault(flight => flight.Id == query.FlightId);
 
             if (selectedFligh == null)
-                throw new AirTicketBusinessException("Flight not found");
+                return new FlightBookingRequestQueryResult();
 
             var flightBookingRequestQueryResult = new FlightBookingRequestQueryResult();
             flightBookingRequestQueryResult.Departure = selectedFligh.Departure;

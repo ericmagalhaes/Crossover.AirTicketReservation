@@ -5,7 +5,10 @@ namespace Crossover.AirTicket.Core.Exception
 {
     public class AirTicketException : ApplicationException
     {
-
+        public AirTicketException(string message) : base(message)
+        {
+            
+        }
     }
 
     public class AirTicketApplicationException : ApplicationException

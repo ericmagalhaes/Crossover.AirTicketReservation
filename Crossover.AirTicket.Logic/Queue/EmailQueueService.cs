@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Crossover.AirTicket.Core.Queue;
+using Crossover.AirTicket.Logic.Domain;
 using Crossover.AirTicket.Logic.Events;
 using MongoDB.Messaging;
 using MongoDB.Messaging.Service;

@@ -9,7 +9,7 @@ namespace Crossover.AirTicket.Core.Common
     {
         [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
         public string Id { get; set; }
-
+        public string RequestId { get; set; }
         public override bool Equals(object obj)
         {
             var other = obj as Entity;

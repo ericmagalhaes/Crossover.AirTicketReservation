@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "AirTicketReservation", "AirTicketReservation\AirTicketReservation.modelproj", "{3441F8E2-6FCA-41E5-9CBA-66651FDCFBDD}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossover.AirTicket.Logic", "Crossover.AirTicket.Logic\Crossover.AirTicket.Logic.csproj", "{E4923E28-86C6-48EF-9675-FBC7998614FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossover.AirTicket.Tests", "Crossover.AirTicket.Tests\Crossover.AirTicket.Tests.csproj", "{D857121B-17E1-432D-B1E1-4E4BB1BF112F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{64D48778-CC35-406E-AC12-836F904424E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D857121B-17E1-432D-B1E1-4E4BB1BF112F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64D48778-CC35-406E-AC12-836F904424E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64D48778-CC35-406E-AC12-836F904424E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64D48778-CC35-406E-AC12-836F904424E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64D48778-CC35-406E-AC12-836F904424E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
